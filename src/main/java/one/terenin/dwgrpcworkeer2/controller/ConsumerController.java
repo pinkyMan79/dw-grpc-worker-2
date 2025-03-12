@@ -3,8 +3,10 @@ package one.terenin.dwgrpcworkeer2.controller;
 import io.grpc.stub.StreamObserver;
 import one.terenin.ConsumerGrpcApiGrpc;
 import one.terenin.Protos;
-import one.terenin.grpcworker1.common.DataHolder;
-import one.terenin.grpcworker1.observer.ConsumerResponseObserver;
+
+import one.terenin.dwgrpcworkeer2.common.DataHolder;
+import one.terenin.dwgrpcworkeer2.observer.ConsumerRequestObserver;
+import one.terenin.dwgrpcworkeer2.observer.ConsumerResponseObserver;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -45,6 +47,6 @@ public class ConsumerController extends ConsumerGrpcApiGrpc.ConsumerGrpcApiImplB
 
     @Override
     public StreamObserver<Protos.DataBundle> sendDataDuplex(StreamObserver<Protos.DataBundle> responseObserver) {
-        return new ConsumerResponseObserver(responseObserver);
+        return new ConsumerRequestObserver(responseObserver);
     }
 }
