@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package one.terenin;
+
+service ConsumerGrpcApi {
+  // half duplex - non streaming
+  rpc sendDataMono(DataCountRequest) returns (DataBundleRepeated);
+  rpc sendDataMonoSingle(Empty) returns (DataBundle);
+  // duplex - streaming
+  rpc sendDataDuplex(stream DataBundle) returns (stream DataBundle);
+}
+
+message DataBundleRepeated {
+  repeated DataBundle data = 1;
+}
+message Empty {}
+message DataBundle {
+  optional string uuid = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional string type = 4;
+  optional string mainCategory = 5;
+  optional string productType = 6;
+  optional string productOwner = 7;
+  repeated string slaveCategories = 8;
+  map <string, string> options = 9;
+  map <string, string> characteristics = 10;
+}
+
+message DataCountRequest {
+  int32 countOfData = 1;
+}

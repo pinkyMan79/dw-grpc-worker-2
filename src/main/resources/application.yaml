@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: dw-grpc-workeer-2
+  grpc:
+    server:
+      port: 9977
