@@ -6,7 +6,6 @@ import one.terenin.Protos;
 
 import one.terenin.dwgrpcworkeer2.common.DataHolder;
 import one.terenin.dwgrpcworkeer2.observer.ConsumerRequestObserver;
-import one.terenin.dwgrpcworkeer2.observer.ConsumerResponseObserver;
 import org.springframework.stereotype.Service;
 
 @Service
