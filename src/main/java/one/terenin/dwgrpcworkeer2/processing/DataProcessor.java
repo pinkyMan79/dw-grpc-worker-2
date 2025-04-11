@@ -9,7 +9,14 @@ import java.util.List;
 public class DataProcessor {
 
     public Protos.DataBundle processData(Protos.DataBundle dataBundle) {
-        return null;
+        return dataBundle = Protos.DataBundle.newBuilder()
+                .addAllSlaveCategories(dataBundle.getSlaveCategoriesList())
+                .setDescription(dataBundle.getDescription() + "_mapped")
+                .setName(dataBundle.getName() + "_mapped")
+                .setMainCategory(dataBundle.getMainCategory() + "_mapped")
+                .setProductOwner(dataBundle.getProductOwner() + "_mapped")
+                .setType(dataBundle.getType() + "_mapeed")
+                .build();
     }
 
     public Protos.DataBundleRepeated processDataRepeated(Protos.DataBundleRepeated dataBundle) {
